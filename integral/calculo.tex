@@ -1,0 +1,273 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[spanish]{babel} 
+\usepackage{mathrsfs}
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry} 
+\usepackage{amsmath, amsthm, amssymb, latexsym}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage[dvipsnames,table,xcdraw]{xcolor}
+\usepackage[none]{hyphenat}
+\usepackage{graphicx}
+\usepackage{sectsty}
+\usepackage{fancyhdr}
+\usepackage{transparent}
+\usepackage{cancel}
+\usepackage[normalem]{ulem}
+%COMANDOS--------------------------------------------------------------------------------------------------------------------------------------------
+\newcommand{\ig}[2]{\begin{minipage}[c]{#1cm}
+    \includegraphics[width=#1cm]{imgs/#2.jpeg}
+\end{minipage}}
+
+\newcommand{\xo}[1]{\paragraph*{#1}}
+
+\newcommand{\tb}[1]{\textbf{\textcolor{blue}{#1}}}
+
+\newcommand{\f}[1]{$$#1$$}
+
+\newcommand{\pp}[1]{\left(#1\right)}
+
+\newcommand{\q}[2]{\frac{#1}{#2}}
+
+\newcommand{\nt}[1]{
+\hrule
+\texttransparent{0.8}{\footnotesize{
+\xo{Notas:}#1
+}}
+\newpage}
+
+\newcommand{\mb}[1]{\mathbb{#1}}
+
+\newcommand{\N}[0]{\mb{N}}
+
+\newcommand{\R}[0]{\mb{R}}
+
+
+\newcommand{\al}[1]{\begin{align*}
+#1
+\end{align*}}
+
+\newcommand{\s}[2]{#1   &   #2\\}
+
+\newcommand{\ee}[0]{\varepsilon}
+%COMANDOS--------------------------------------------------------------------------------------------------------------------------------------------
+
+%DISEÑO----------------------------------------------------------------------------------------------------------------------------------------------
+
+\fancyhf{}
+\lhead[\leftmark]{Andy F. Logacho}
+\rhead[Andy F. Logacho]{\rightmark}
+\lfoot[\thepage]{Cálculo Integral}
+\rfoot[Cálculo Integral]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\pagestyle{fancy}
+%DISEÑO----------------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    {\includegraphics[width=0.2\textwidth]{Logo_EPN.eps}\par}
+    \vspace{1cm}
+    {\bfseries\LARGE Escuela Politécnica Nacional \par}
+    \vspace{1cm}
+    {\scshape\Large Facultad de Ciencias \par}
+    \vspace{3cm}
+    {\scshape\Huge Calculo Integral \par}
+    {\itshape\Large Apuntes de Clase \par}
+    \vfill
+    {\itshape\Large Andy F. Logacho \par}
+    \vfill
+    {\Large Profesor:  \par}
+    {\Large Herrera Teran Maribel Kateryn\par}
+    \vfill
+    {\Large Mayo 2023 \par}
+\end{titlepage}
+\newpage
+
+\section*{Motivación}
+Utilice rectángulos para estimar el área bajo la parábola $y=x^2$, desde 0 hasta 1.
+
+\begin{minipage}[c]{5cm}
+    \includegraphics[width=5cm]{imgs/1.jpeg}
+\end{minipage}
+\ig{12}{2}
+
+\xo{Solución:}El área de la función $f(x)=x^2$ viene a estar entre 0 y 1, dado que se encuentra dentro de un cuadrado de área 1. 
+Se puede deducir un mejor análisis si dividimos a $S$ en 4 franjas $(S_1,S_2,S_3,S_4)$, donde las verticales se trazan cuando 
+$x=\frac{1}{4},x=\frac{1}{2},x=\frac{3}{4},x=1$ siendo esta altura los supremos de los intervalos. 
+
+Ahora podemos obtener un área aproximada formando rectángulos donde su altura son las imágenes de $x$ antes mencionadas y el ancho de todos 
+los rectángulos son $\frac{1}{4}$. Si denotamos a $R_4$ como la suma de el área de todos los rectángulos (Área por la derecha) tenemos:
+
+\f{R_4=\frac{1}{4}\pp{\frac{1}{4}}^2+\frac{1}{4}\pp{\frac{2}{4}}^2+\frac{1}{4}\pp{\frac{3}{4}}^2+\frac{1}{4}(1)^2=\q{15}{32}=0.46875}
+
+Lo que se deduce que el área de $S$ es menor a $R_4$ (decimos que es menor dado que el área de los rectángulos sobresalen de $S$)
+
+\ig{5}{3} \tb{Ahora utilizaremos rectángulos mas pequeños.} 
+
+Se continua con la misma idea con la diferencia de que los rectángulos son mas pequeños, 
+donde las imágenes de $x$ cuando $x=0,x=\q{1}{2},x=\q{2}{4},x=\q{3}{4}$ son la altura, la cual a su vez es el ínfimo de los intervalos. Concluyendo definimos a 
+$L_4$ como la suma de el área de estos rectángulos (Área por la izquierda), teniendo asi:
+
+\f{L_4=\q{1}{4}(0)^2+\q{1}{4}\pp{\q{1}{4}}^2+\q{1}{4}\pp{\q{2}{4}}^2+\q{1}{4}\pp{\q{3}{4}}^2=\q{7}{32}=0.21875}
+
+Podemos notar que ahora el área aproximado de $S$ es mayor a 0.21875, dado que los rectángulos no abarcan todo el área $S$, por lo que se concluye que:
+\f{0.21875 < S < 0.46875}
+
+\f{\quad}
+
+\f{\quad}
+
+\f{\quad}
+
+\f{\quad}
+
+\f{\quad}
+
+
+
+\nt{Se presenta la idea esencial de la suma de Riemann y la integral definida, su historia y conceptos necesarios para su definición formal. 
+Se mencionan conceptos como Ínfimo, Supremo, particiones y etiquetas. También se explica que $R_n$ representa el área por la derecha utilizando como altura las imágenes de los 
+supremos de cada intervalo y $L_n$ representa el área por la izquierda utilizando como altura las imágenes de los ínfimos de los intervalos.
+}
+
+
+
+Dado que estos resultados son aproximaciones muy ambiguas de el área total de $S$, para la búsqueda de algo mas preciso tenemos que partir a $S$ en 
+secciones más pequeñas, así al partirlo en 10, 20, 30, 50, 100 y 1000, obtenemos las siguientes áreas:
+\begin{center}
+    \ig{5}{4}    
+\end{center}
+Se puede notar que el área por derecha $(R_n)$ y por izquierda $(L_n)$ tienden a 0.33... cuando el valor de $n$ es mucho mayor.
+
+Ahora, para obtener el área de forma precisa necesitamos la mayor cantidad de particiones (rectángulos) para obtener un área más precisa, evaluamos esto en 
+$n-particiones$ con $n\in \N$, ási podemos definir a $R_n$, obteniendo:
+
+\al{
+\s{R_n}{=\q{1}{n}\pp{\q{1}{n}}^2+\q{1}{n}\pp{\q{2}{n}}^2+\q{1}{n}\pp{\q{3}{n}}^2+\cdots + \q{1}{n}\pp{\q{n}{n}}^2}
+\s{}{=\q{1}{n^3}\pp{1^2+2^2+3^2+...+n^2}}
+\s{}{=\q{1}{n^3}\pp{\q{n(n+1)(2n+1)}{6}}}
+\s{}{=\q{(n+1)(2n+1)}{6n^2}}
+}
+Aplicamos límites para hallar el valor preciso de $S$, recordando que $S=R_n$
+\al{
+\s{\lim_{n\to{\infty}}{\dfrac{\left(n+1\right)\,\left(2\,n+1\right)}{6\,n^{2}}}}{=\dfrac{1}{6}\,\lim_{n\to{\infty}}{\dfrac{\dfrac{3}{n}+\dfrac{1}{n^{2}}+2}{1}}}
+\s{}{=\dfrac{1}{6}\,\lim_{n\to{\infty}}{\dfrac{{{\dfrac{3}{n}}^{\,{{}}}}+{{\dfrac{1}{n^{2}}}^{\,{{}}}}+2}{1}}}
+\s{}{=\dfrac{1}{6}\,\lim_{n\to{\infty}}{\dfrac{2}{1}}}
+\s{}{=\q{1}{3}}
+}
+
+Asi se determina que el área $S$ es $\q{1}{3}$, además se puede reconocer que 
+\f{S=\lim_{n\to \infty}R_n=\lim_{n\to \infty}L_n=\q{1}{3}}
+Generalizando, se plantea el problema del área y se establece el buscarla mediante rectángulos, obteniendo un aproximación muy ambigua, por lo que se deduce la necesidad 
+de generar un mayor numero de particiones, de tal modo que tienda al infinito, así introducimos los límites que ayudarán a conseguir de forma precisa el área. La formula general que 
+se usó en todo este proceso fue:
+
+\f{S=\lim_{x\to \infty}\sum_{i=1}^{n}f(x_i)\cdot \Delta x}
+Donde $S$ es el área buscada, $f(x_i)$ es la altura de los rectángulos y $\Delta x$ es el grosor de estos.
+\f{\quad}
+\f{\quad}
+\f{\quad}
+
+
+\nt{Se concluye con la ircorporación de la límites para la obtención de el área buscada de forma precisa, manteniendo los conceptos del caso anterior y finalizando con 
+la prévia de la formula que se usará en Suma de Riemann.}
+
+\begin{center}\texttransparent{0.5}{\textbf{\Huge{
+    1\\
+    Cálculo de Primitivas de una Función Real de Variable Real}\\
+    $\quad$
+    }}
+    \hrule
+\end{center}
+\setcounter{section}{1}
+\subsection{Suma de Riemann}
+Se considera $a,b\in \R$ con $a<b$
+
+\xo{Definición 1:}Dado un intervalo $[a,b]$, una \tb{Partición del intervalo} $[a,b]$ de orden $n$ es un conjunto
+\f{P=\{x_k \in \R : k=0,...,n\}}
+tal que 
+\f{a=x_0<x_1<...<x_n=b}
+
+\begin{itemize}
+    \item A los conjuntos 
+    \f{I_k=[x_{k-1},x_k]}
+    con $k=1,...n$ se los llama \tb{Subintervalos de la partición}
+
+    \item A las cantidades 
+    \f{\Delta x_k = x_k - x_{k-1}}
+    con $k=1,...,n$ se la llama \tb{Longuitud} del subintervalo $I_k$
+
+    \item A un conjunto 
+    \f{C=\{c_k\in I_k:k=1,...,n\}}
+    Se lo llama \tb{conjunto de etiquetas} para $P$
+
+    \item A un par $(P,C)$ se lo llama una \tb{partición etiquetada} de $[a,b]$
+    
+    \item A la cantidad 
+    \f{|P|=\max_{k=1,..,n}\Delta x_k}
+    se lo llama \tb{grosor} de la partición
+\end{itemize}
+
+\xo{Definición 2:} Sean $f:[a,b]\to \R$ una función y $(P,C)$ una partición etiquetada de $[a,b]$ de orden $n$, entonces:
+\f{S(f,P,C)=\sum_{k=1}^n f(c_k) \Delta x_k}
+es la \tb{Suma de Riemann de $f$ respecto a la partición etiquetada $(P,C)$}
+
+\xo{Definición 3:} Sean $f:[a,b]\to \R$ una función e $I\in \R$, se dice que el número $I$ es la \tb{Integral de $f$ sobre $[a,b]$}, denotado por:
+
+\f{I=\int_a^bf(x)dx}
+si $\forall \ee >0$, $\exists \delta >0$ tal que para toda partición $P$ que cumple con $|P|<\delta $ y todo conjunto de etiquetas $C$ de $P$, se tiene que 
+
+\f{|S(f,P,C)-I| \leq \ee}
+
+De existir el número $I$, se dice que $f$ es \tb{Integrable según Riemann}.
+
+\nt{
+Partición del intervalo es la cantidad de veces que se fraccionará el intervalo $[a,b]$.\\
+Un sub intervalo de partción no es mas que el intervalo que va del ínfimo al supremo de cada frácción. En la Motivación, estos intervalos eran: $[0, \q{1}{4}],[\q{1}{4},\q{1}{2}],[\q{3}{4},1]$\\
+La longitud del subintervalo no es mas que la diferencia entre el supremo y el ínfimo de cada subintervalo.\\
+El conjunto de etiquetas son, los valores de $x$ que se evaluarán en la función para obtener la altura de los rectángulos, pueden sera el ínfimo, supremo o cualquier valor dentro del subintervalo.\\
+El grosor se refiere de igual forma a la longitud, donde el la diferencia entre $c_k - c_{k-1}$ tiene que tener obligatoriamente el mismo valor que la longitud.
+}
+
+\subsection{Notación Sigma}
+\xo{Definición 4:} Sean $n\in \N$ y $a_0,a_1,...,a_n\in \R$. La suma desde $k$ igual a $0$ hasta $n$ de $a_k$, notado por:
+\f{\sum_{k=0}^n a_k}
+se define de manera recursiva de la siguiente forma:
+\begin{itemize}
+    \item $$\sum_{k=0}^0=a_0$$
+    
+    \item $$\sum_{k=0}^{n+1}a_k=\sum_{k=0}^{n}a_k+a_{n+1}$$
+\end{itemize}
+
+Aquí es importante recalcar que no existe una única forma de escribir la notación Sigma.
+
+\xo{Teorema 1:}Sean $n\in N$, $a_0,a_1,...,a_n\in \R$, $b_0,b_1,...,b_n\in \R$ y $c\in \R$. Se tiene que:
+
+\begin{itemize}
+    \item \f{\sum_{k=0}^{n}(a_k+b_k)=\sum_{k=0}^{n}a_k+\sum_{k=0}^{n}b_k}
+    \item \f{\sum_{k=1}^{n}1=n}
+    \item \f{\sum_{k=0}^{n}c\cdot a_k= c\cdot \sum_{k=0}^{n}a_k}
+    \item \f{\sum_{k=0}^{n}c=(n+1)\cdot c}
+    \item \f{\sum_{k=1}^{n}c=n\cdot c}
+    \item \f{\sum_{k=1}^{n}k=\q{n(n+1)}{2}}
+    \item \f{\sum_{k=1}^{n}k^2=\q{n(n+1)(2n+1)}{6}}
+\end{itemize}
+
+\f{\quad}
+\f{\quad}
+\f{\quad}
+\f{\quad}
+\f{\quad}
+\f{\quad}
+\f{\quad}
+\f{\quad}
+\f{\quad}
+\nt{La herramienta de la notación sigma se utilizará principalmente para establecer de forma mas simplificada 
+la suma de Riemann, por lo que se presentan algunas propiedades de la sumatoria y se reconoce la no existencia de 
+una unica forma de escribir esta.}
+
+\end{document}
